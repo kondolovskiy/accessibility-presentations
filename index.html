@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Accessibility clio presentation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>ClioOnline accessibility presentation</h1>
+        <p>Viktor Kondolovskyi, Clio Online</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Accessibility</h2>
+        <p>Why this is important and why we should pay attention in it</p>
+        <figure>
+            <!-- todo: find better image -->
+            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
+            <figcaption class="copyright right white">
+                <a href="http://fiftyfootshadows.net/">© John Carey</a>
+            </figcaption>
+        </figure>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                color: white;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: white;
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            #cover p a {
+                color: white;
+            }
+
+            .slide .centered-header {
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                line-height: 1.2;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Agenda</h2>
+        <ol>
+            <li>What?</li>
+            <li>Why?</li>
+            <li>How?</li>
+            <li>When?</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">Accessibility means providing the way to use web equally.</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Who is need it?</h2>
+        <p>People who...</p>
+        <ul>
+            <li>can't use their arms</li>
+            <li>can't hear well</li>
+            <li>can't see well</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">But not only they</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Stress cases:</h2>
+        <ul>
+            <li class="next">Old age</li>
+            <li class="next">Chronic medical conditions</li>
+            <li class="next">Being outside with a heavy sun glare</li>
+            <li class="next">Needing to use a site with different devices</li>
+            <li class="next">Temporary disabilities</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <style>
+            .chart-wrapper {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                grid-column-gap: 50%;
+            }
+
+            .info-image {
+                position: relative;
+                width: 49%;
+                float: left;
+                height: 49%;
+            }
+
+            .info-image .img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .info-image .number {
+                position: absolute;
+                right: 5px;
+                bottom: 5px;
+                font-size: 40px;
+                color: #cc0000;
+            }
+        </style>
+
+        <div class="chart-wrapper">
+            <figure class="info-image">
+                <img src="pictures/pie-chart-1.png" class="img" alt="Chart to show how see people who can't see well">
+                <figcaption class="number">
+                    217M
+                </figcaption>
+            </figure>
+
+            <figure class="info-image">
+                <img src="pictures/pie-chart-2.png" class="img" alt="Chart to show how see people who can't see colors well">
+                <figcaption class="number">
+                    307M
+                </figcaption>
+            </figure>
+
+            <figure class="info-image">
+                <img src="pictures/pie-chart-4.png" class="img" alt="Chart to show how see people who can't see well">
+                <figcaption class="number">
+                    187M
+                </figcaption>
+            </figure>
+
+            <figure class="info-image">
+                <svg role="img" class="img" aria-label="Black image to show how blind people feel">
+                    <rect width="100%" height="300" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)" />
+                </svg>
+                <figcaption class="number">
+                    36M
+                </figcaption>
+            </figure>
+        </div>
+
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">How to make site accessible?</h2>
+    </section>
+
+    <section class="slide">
+        <figure class="cover">
+            <img class="slide-image" src="pictures/semantics.png" alt="Difference between divs and semantic html tags">
+            <figcaption class="copyright right white">
+                <a href="https://pepelsbey.net/" style="color: #000">© Vadim Makeev</a>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">Stop to be DIVelopers</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Links and buttons</h2>
+        <ol>
+            <li>Use links to open new page or navigate on the current page</li>
+            <li>Use buttons to make actions on page</li>
+            <li>Don't use div and span with onClick handlers</li>
+            <li>Don't use empty links
+                <pre>
+                    <code>&lt;a href="/somewhere" class="icon facebook"&gt;&lt;/a&gt;</code>
+                </pre>
+            </li>
+            <li>Write descriptive links
+                <figure>
+                    <img style="width: 20%" src="pictures/descriptive-links.png" alt="Linktexts: Wrong: Click here. Right: Assignment instructions" />
+                </figure>
+            </li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>How to make better</h2>
+        <div class="columns two">
+            <ul>
+                <li>Always use semantic HTML</li>
+                <li>Add labels to form elements</li>
+                <li>Use contrasting colors</li>
+                <li>Provide text for not-text-content</li>
+            </ul>
+
+            <ul>
+
+                <li>Show where your :focus is</li>
+                <li>Understandable without colors</li>
+                <li>Caption video and audio</li>
+                <li>Keep pinch zoom alive</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="slide">
+        <h2>Testing accessibility</h2>
+        <ul>
+            <li class="next">Zoom to 200%</li>
+            <li class="next">Check keyboard navigation</li>
+            <li class="next">Run Google Chrome accessibility audit</li>
+            <li class="next">Use screen reader</li>
+            <li class="next">Deactivate CSS</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Chrome audits</h2>
+        <figure>
+            <img style="width: 100%" src="pictures/myclio-audits.png" alt="Accessibility audits results of myclio page. The page is adapted on 54 percent">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Screen readers</h2>
+        <figure>
+            <img style="width: 100%" src="pictures/myclio-landsmarks.png" alt="Landmarks on myclio page">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Screen readers</h2>
+        <figure>
+            <img style="width: 100%" src="pictures/myclio-links.png" alt="Links on myclio page">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">When shold we do it?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">Now</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="centered-header">Questions?</h2>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.min.js"></script>
+    <!-- Copyright © 2018 Viktor Kondolovskyi, clioonline.dk. -->
+
+</body>
+</html>
