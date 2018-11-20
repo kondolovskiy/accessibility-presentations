@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button class="next">Next</button>
+
+
+<script>
+	const socket = new WebSocket('ws://localhost:3001');
+
+	socket.onopen = function() {
+		console.log("Connected");
+	};
+
+	socket.onclose = function(event) {
+		if (event.wasClean) {
+			console.log('Connection are closed');
+		} else {
+			console.log('Bad connection'); // например, "убит" процесс сервера
+		}
+		console.log('Code: ' + event.code + ' reason: ' + event.reason);
+	};
+
+	socket.onmessage = function(event) {
+		console.log("received data " + event.data);
+	};
+
+	socket.onerror = function(error) {
+		console.log("Ошибка " + error.message);
+	};
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const next = document.querySelector('.next');
+
+		next.addEventListener('click', e => {
+			socket.send(true);
+		});
+	});
+</script>
+
+</body>
+</html>
