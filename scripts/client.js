@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-	const slides = document.querySelectorAll('.slide');
-	console.log(slides.length);
-});
-
 const socket = new WebSocket('ws://localhost:3001');
 
 socket.onopen = function() {

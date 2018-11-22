@@ -3,14 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+
+        .btn {
+            display: inline-block;
+            width: 15rem;
+            height: 12rem;
+            margin: 20px;
+            border: 2px solid #000;
+            background: #cacaca;
+            font-size: 2rem;
+        }
+
+        .controls {
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
 
-<button class="next">Next</button>
-
+    <div class="controls">
+        <button class="btn prev">Prev</button>
+        <button class="btn next">Next</button>
+    </div>
 
 <script>
-	const socket = new WebSocket('ws://localhost:3001');
+	const socket = new WebSocket('ws://kondolovskiy.herokuapp.com');
 
 	socket.onopen = function() {
 		console.log("Connected");
@@ -35,9 +55,14 @@
 
 	document.addEventListener('DOMContentLoaded', () => {
 		const next = document.querySelector('.next');
+		const prev = document.querySelector('.prev');
+
+		prev.addEventListener('click', e => {
+			socket.send('prev');
+		});
 
 		next.addEventListener('click', e => {
-			socket.send(true);
+			socket.send('next');
 		});
 	});
 </script>
