@@ -326,7 +326,7 @@
             extend(Navigator.prototype, {
 
             	_initSocket: function() {
-					const socket = new WebSocket('ws://kondolovskiy.herokuapp.com');
+					const socket = new WebSocket('wss://kondolovskiy.herokuapp.com');
 					const shower = this._shower;
 
 					socket.onopen = function() {
