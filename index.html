@@ -311,5 +311,63 @@
     <script src="node_modules/shower-core/shower.min.js"></script>
     <!-- Copyright © 2018 Viktor Kondolovskyi, clioonline.dk. -->
 
+    <script>
+        shower.modules.define('shower-navigator', [
+        	'util.extend'
+        ], function(provide, extend) {
+
+        	function Navigator (shower, options) {
+        		options = options || {};
+        		this._shower = shower;
+
+        		this._initSocket();
+            }
+
+            extend(Navigator.prototype, {
+
+            	_initSocket: function() {
+					const socket = new WebSocket('ws://kondolovskiy.herokuapp.com');
+					const shower = this._shower;
+
+					socket.onopen = function() {
+						console.log("Connected");
+					};
+
+					socket.onclose = function(event) {
+						if (event.wasClean) {
+							console.log('Connection are closed');
+						} else {
+							console.log('Bad connection');
+						}
+						console.log('Code: ' + event.code + ' reason: ' + event.reason);
+					};
+
+					socket.onmessage = function(event) {
+						console.log("received data " + event.data);
+						switch (event.data) {
+							case 'prev': shower.player.prev();
+								break;
+                            case 'next': shower.player.next();
+                                break
+						}
+					};
+
+					socket.onerror = function(error) {
+						console.log("Error " + error.message);
+					};
+
+                }
+            });
+
+        	provide(Navigator);
+
+        });
+
+        shower.modules.require(['shower'], function(sh) {
+        	sh.plugins.add('shower-navigator');
+        });
+
+    </script>
+
 </body>
 </html>
